@@ -1,0 +1,53 @@
+{
+  "name": "lightning",
+  "version": "1.0.0",
+  "description": "Express App",
+  "main": "./dist/lightning.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/ketansawhney"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ketansawhney/lightning.git"
+  },
+  "bin": {},
+  "author": "Neeki Patel",
+  "scripts": {
+    "build": "yarn babel src --out-dir dist",
+    "lint": "./node_modules/.bin/eslint .",
+    "changelog": "./node_modules/.bin/conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/ketansawhney/lightning",
+  "devDependencies": {
+    "@babel/cli": "7.6.4",
+    "@babel/core": "7.6.4",
+    "@babel/preset-env": "7.6.3",
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "conventional-changelog-cli": "2.0.25",
+    "eslint": "6.5.1",
+    "eslint-config-prettier": "6.4.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-prettier": "3.1.1",
+    "husky": "^3.0.9",
+    "prettier": "1.18.2"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "dotenv": "8.2.0",
+    "connect-slashes": "1.4.0",
+    "body-parser": "1.19.0",
+    "cookie-parser": "1.4.4",
+    "response-time": "2.3.2",
+    "connect-timeout": "1.9.0",
+    "morgan": "1.9.1",
+    "winston": "3.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "commit-msg": "yarn commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
